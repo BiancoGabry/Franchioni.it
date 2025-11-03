@@ -201,6 +201,10 @@ body {
     display: block;
 }
 
+.crediti {
+    color: white;
+}
+
 /* Menu nascosto per mobile */
 #menu {
     display: none;
