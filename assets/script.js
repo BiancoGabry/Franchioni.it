@@ -76,30 +76,6 @@ document.querySelector('.arrow.left').addEventListener('mouseleave', startSlides
 initSlideshow();
 
 
-//Immagini macchine vendita
-function showImage(container, index) {
-    const images = container.querySelectorAll('img');
-    images.forEach((img, i) => {
-        img.style.display = i === index ? 'block' : 'none';
-    });
-}
-
-function prevImage(button) {
-    const container = button.parentElement;
-    let currentIndex = parseInt(container.getAttribute('data-current-index'));
-    currentIndex = (currentIndex === 0) ? container.querySelectorAll('img').length - 1 : currentIndex - 1;
-    container.setAttribute('data-current-index', currentIndex);
-    showImage(container, currentIndex);
-}
-
-function nextImage(button) {
-    const container = button.parentElement;
-    let currentIndex = parseInt(container.getAttribute('data-current-index'));
-    currentIndex = (currentIndex === container.querySelectorAll('img').length - 1) ? 0 : currentIndex + 1;
-    container.setAttribute('data-current-index', currentIndex);
-    showImage(container, currentIndex);
-}
-
 // Magic Island
 const header = document.querySelector('.header');
 
@@ -122,8 +98,8 @@ anchorLinks.forEach((link) => {
         // Get the target element (the section with the corresponding id)
         const target = document.querySelector(link.getAttribute('href'));
 
-        // Calculate the offset (in this case, the height of the header + 20px)
-        const offset = document.querySelector('.header').offsetHeight + 20;
+        // Calculate the offset (in this case, the height of the header + 50px)
+        const offset = document.querySelector('.header').offsetHeight + 50;
 
         // Scroll to the target element with the offset
         window.scrollTo({
@@ -141,22 +117,6 @@ function toggleMenu() {
     const menu = document.getElementById('menu');
     menu.classList.toggle('active');
 }
-
-
-// Aggiungi un evento al pulsante "Show more"
-document.querySelectorAll('.show-more').forEach(button => {
-    button.addEventListener('click', () => {
-        console.log("click");
-        const informazioniExtra = button.nextElementSibling;
-        if (informazioniExtra.style.display === 'none') {
-            informazioniExtra.style.display = 'block';
-            button.textContent = 'Mostra di meno';
-        } else {
-            informazioniExtra.style.display = 'none';
-            button.textContent = 'Mostra di più';
-        }
-    });
-});
 
 
 // schermata di Caricamento

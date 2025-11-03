@@ -14,10 +14,6 @@ body {
     scroll-behavior: smooth;
 }
 
-.logo-stondato {
-    border-radius: 8px;
-}
-
 .navboxes {
     transition: color 0.3s;
 }
@@ -86,18 +82,6 @@ body {
     object-fit: contain;
     background-size: cover;
     background-position: center;
-}
-
-
-.discover-more {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-size: 1.2em;
-    color: #1d1d1d;
-    cursor: pointer;
 }
 
 
@@ -207,109 +191,6 @@ body {
     100% {
         transform: translateY(0);
     }
-}
-
-.autovendita {
-    border-radius: 20px;
-    background-color: #f5f5f7;
-    padding: 20px;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.308);
-    transition: transform 0.3s;
-}
-
-.autovendita:hover {
-    transform: scale(1.05);
-}
-
-.immaginevendita {
-    min-width: 100%;
-    border-radius: 20px;
-    object-fit: contain;
-    background-size: cover;
-    background-position: center;
-}
-
-.image-container {
-    position: relative;
-    min-width: 100%;
-    border-radius: 20px;
-    object-fit: contain;
-    background-size: cover;
-    background-position: center;
-}
-
-.image-container img {
-    width: 100%;
-    display: block;
-}
-
-.image-container .prev,
-.image-container .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.image-container .prev {
-    left: 0;
-}
-
-.image-container .next {
-    right: 0;
-}
-
-/* Aggiungi uno stile al pulsante "Show more" */
-.show-more {
-    background-color: #1d1d1d;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 auto;
-    display: block;
-    transition: background-color 0.3s;
-}
-
-.show-more:hover {
-    background-color: #686868;
-}
-
-/* Aggiungi uno stile alle informazioni extra */
-.informazioni-extra {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.pulsante {
-    background-color: #00adef;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.pulsante:hover {
-    background-color: #00334b;
-}
-
-
-/* CSS vendita auto */
-
-.contentvendita {
-    max-width: 1700px;
-    margin: auto;
 }
 
 /* Menu Hamburger Icon Style */
