@@ -152,9 +152,9 @@ body {
 }
 
 .footer {
-    color: black;
+    background-color: #00adef;
+    color: white;
     text-align: center;
-    line-height: 2;
 }
 
 /* Stile del titolo */
