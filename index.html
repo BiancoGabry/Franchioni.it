@@ -35,6 +35,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://www.google.com">
     <link rel="manifest" href="./manifest.json">
+    <!-- Preload della prima immagine dello slideshow per LCP -->
+    <link rel="preload" as="image" href="./assets/images/FotoPiccole/1crop.jpg">
     <meta name="theme-color" content="#00adef">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -118,18 +120,18 @@
 
     <div class="mt-20">
         <div class="slideshow-container">
-            <div class="slides">
-                <img class="slide" src="./assets/images/FotoPiccole/1crop.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/2.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/3.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/4.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/5.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/6.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/7.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/8.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/9.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/10.jpg"></img>
-                <img class="slide" src="./assets/images/FotoPiccole/11.jpg"></img>
+            <div class="slides"> <!-- gli alt sono fatti a caso -->
+                <img class="slide" alt="Selettori e Segnalazioni Movimenti" src="./assets/images/FotoPiccole/1crop.jpg" width="1200" height="675"></img>
+                <img class="slide" alt="Quadro ABB" src="./assets/images/FotoPiccole/2.jpg" loading="lazy" width="1200" height="675"></img>
+                <img class="slide" alt="Piastra appena iniziata" src="./assets/images/FotoPiccole/3.jpg" loading="lazy" width="1200" height="675"></img>
+                <img class="slide" alt="Codice sito vecchio" src="./assets/images/FotoPiccole/4.jpg" loading="lazy" width="1200" height="675"></img>
+                <img class="slide" alt="Quadro granderrimo 1" src="./assets/images/FotoPiccole/5.jpg" loading="lazy" width="1200" height="675"></img>
+                <img class="slide" alt="Quadro ABB completo" src="./assets/images/FotoPiccole/6.jpg" loading="lazy" width="1200" height="675"></img>
+                <img class="slide" alt="Morsettiera brutta" src="./assets/images/FotoPiccole/7.jpg" loading="lazy" width="1200" height="675"></img>
+                <img class="slide" alt="Quadretto controller led" src="./assets/images/FotoPiccole/8.jpg" loading="lazy" width="1200" height="675"></img>
+                <img class="slide" alt="Quadro Schneider" src="./assets/images/FotoPiccole/9.jpg" loading="lazy" width="1200" height="675"></img>
+                <img class="slide" alt="Quadro granderrimo 2" src="./assets/images/FotoPiccole/10.jpg" loading="lazy" width="1200" height="675"></img>
+                <img class="slide" alt="Quadro granderrimo 3" src="./assets/images/FotoPiccole/11.jpg" loading="lazy" width="1200" height="675"></img>
             </div>
             <div class="arrow left">&#10094;</div>
             <div class="arrow right">&#10095;</div>
@@ -145,9 +147,9 @@
 
                 <div class="flex place-content-center">
                     <div class="animate-bounce bg-white transition-all p-3 rounded-full shadow-md">
-                        <a href="#chi-siamo">
+                        <a href="#chi-siamo" aria-label="Scorri verso il basso per scoprire più contenuti">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                class="size-8 stroke-gray-800 stroke-2">
+                                class="size-8 stroke-gray-800 stroke-2" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
                             </svg>
@@ -220,6 +222,7 @@
                 <h2 class="text-4xl font-semibold">Dove siamo</h2>
             </div>
             <iframe
+            title="Mappa FRANCHIONI FABIO & C. S.N.C."
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.8146709831417!2d9.622171576941879!3d45.75575331393775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x467175056e17ea4d%3A0xc40221f9eec20332!2sFRANCHIONI%20FABIO%20%26%20C.%20S.N.C.!5e1!3m2!1sit!2sit!4v1762186430800!5m2!1sit!2sit"
                 width=100% height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -260,7 +263,7 @@
         </div> -->
 
         <div class="footer text-center p-2">Copyright © 2025 FRANCHIONI FABIO & C. S.N.C. - C.F. / P.IVA: <a class="underline"
-                target="_blank" href="https://www.ufficiocamerale.it/4543/franchioni-fabio-c-snc" a>01958680165</a> -
+                target="_blank" href="https://www.ufficiocamerale.it/4543/franchioni-fabio-c-snc">01958680165</a> -
             Tutti i diritti
             riservati</p>
         </div>

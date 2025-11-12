@@ -62,15 +62,18 @@ function updateSlidePosition() {
     slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
-// Eventi di navigazione
-document.querySelector('.arrow.right').addEventListener('click', nextSlide);
-document.querySelector('.arrow.left').addEventListener('click', prevSlide);
+// Eventi di navigazione con passive event listeners
+const rightArrow = document.querySelector('.arrow.right');
+const leftArrow = document.querySelector('.arrow.left');
+
+rightArrow.addEventListener('click', nextSlide);
+leftArrow.addEventListener('click', prevSlide);
 
 // Gestione dello scorrimento automatico
-document.querySelector('.arrow.right').addEventListener('mouseenter', stopSlideshow);
-document.querySelector('.arrow.left').addEventListener('mouseenter', stopSlideshow);
-document.querySelector('.arrow.right').addEventListener('mouseleave', startSlideshow);
-document.querySelector('.arrow.left').addEventListener('mouseleave', startSlideshow);
+rightArrow.addEventListener('mouseenter', stopSlideshow);
+leftArrow.addEventListener('mouseenter', stopSlideshow);
+rightArrow.addEventListener('mouseleave', startSlideshow);
+leftArrow.addEventListener('mouseleave', startSlideshow);
 
 // Inizializza lo slideshow
 initSlideshow();
@@ -78,14 +81,20 @@ initSlideshow();
 
 // Magic Island
 const header = document.querySelector('.header');
+let scrollTimeout;
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) { // or any other threshold value
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
+function handleScroll() {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }, 10);
+}
+
+window.addEventListener('scroll', handleScroll, { passive: true });
 
 
 //spostamento href header
@@ -97,18 +106,20 @@ anchorLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
         // Get the target element (the section with the corresponding id)
         const target = document.querySelector(link.getAttribute('href'));
+        
+        if (target) {
+            // Calculate the offset (in this case, the height of the header + 50px)
+            const offset = document.querySelector('.header').offsetHeight + 50;
 
-        // Calculate the offset (in this case, the height of the header + 50px)
-        const offset = document.querySelector('.header').offsetHeight + 50;
+            // Scroll to the target element with the offset
+            window.scrollTo({
+                top: target.offsetTop - offset,
+                behavior: 'smooth',
+            });
 
-        // Scroll to the target element with the offset
-        window.scrollTo({
-            top: target.offsetTop - offset,
-            behavior: 'smooth',
-        });
-
-        // Prevent the default anchor link behavior
-        event.preventDefault();
+            // Prevent the default anchor link behavior
+            event.preventDefault();
+        }
     });
 });
 
@@ -126,18 +137,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // Nascondi il caricamento dopo l'animazione
     setTimeout(() => {
         loadingScreen.style.display = 'none';
-    }, 3000); // La durata deve corrispondere a quella dell'animazione (2s)
+    }, 2500); // La durata deve corrispondere a quella dell'animazione (2.5s)
 });
 
-window.addEventListener('scroll', function() {
-    const scrollContent = document.getElementById('scroll-content');
-    const scrollPosition = window.scrollY;
-    
-    // Inizia a svanire dopo 100px di scroll
-    if (scrollPosition > 100) {
-        const opacity = Math.max(0, 1 - (scrollPosition - 100) / 200);
-        scrollContent.style.opacity = opacity;
-    } else {
-        scrollContent.style.opacity = 1;
-    }
-});
+let scrollOpacityTimeout;
+
+function handleScrollOpacity() {
+    clearTimeout(scrollOpacityTimeout);
+    scrollOpacityTimeout = setTimeout(() => {
+        const scrollContent = document.getElementById('scroll-content');
+        if (!scrollContent) return;
+        
+        const scrollPosition = window.scrollY;
+        
+        // Inizia a svanire dopo 100px di scroll
+        if (scrollPosition > 100) {
+            const opacity = Math.max(0, 1 - (scrollPosition - 100) / 200);
+            scrollContent.style.opacity = opacity;
+        } else {
+            scrollContent.style.opacity = 1;
+        }
+    }, 10);
+}
+
+window.addEventListener('scroll', handleScrollOpacity, { passive: true });
